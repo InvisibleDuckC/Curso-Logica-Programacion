@@ -1,0 +1,56 @@
+<meta charset="UTF-8">
+
+<h1>Juego de adivinacion</h1>
+
+
+<script>
+    function saltarLinea()
+    {
+        document.write("<br>");
+    }
+
+    function imprimir(texto)
+    {
+        document.write(texto);
+        saltarLinea();
+    }
+
+    function sortea(max) 
+    {
+        return Math.round((Math.random() * (max)))
+    }
+
+    var contador = 0;
+    var intentos = 5;
+    var numeroIngresado = parseInt(prompt("Ingresa un numero para asignar como maximo"));
+    var numeroPensado = sortea(numeroIngresado);
+    //var numeroLanzado = parseInt(prompt("Ingrese un numero entre 0-" + numeroIngresado))
+
+
+    while (contador <= intentos){
+
+        var numeroLanzado = parseInt(prompt("Ingrese un numero entre 0-" + numeroIngresado));
+    
+        if (numeroPensado == numeroLanzado)
+        {
+            imprimir("usted acertó");
+            contador = intentos;
+            break
+        }
+
+        else
+        {
+            if (numeroLanzado > numeroPensado)
+            {
+                imprimir("El numero pensado era menor a " + numeroLanzado);
+            }
+            if (numeroLanzado < numeroPensado)
+            {
+                imprimir("El numero pensado era mayor a " + numeroLanzado);
+            }
+            contador++;
+        }
+    }
+    imprimir("fin")
+
+</script>

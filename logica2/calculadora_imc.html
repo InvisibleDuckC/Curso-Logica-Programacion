@@ -1,0 +1,71 @@
+<meta charset="UTF-8">
+
+<h1>Calculadora IMC</h1>
+
+
+<script>
+    function saltarLinea()
+    {
+        document.write("<br>");
+        document.write("<br>");
+        document.write("<br>");
+    }
+
+    function imprimir(texto)
+    {
+        document.write(texto);
+        saltarLinea();
+    }
+
+    function calcularIMC(peso, altura)
+    {
+        // Se calcula el IMC en base a la altura y el peso ingresados en la funcion
+        var imc = (peso / (altura * altura));
+        return imc.toFixed(2);
+    }
+
+    function promEntre2(valor1, valor2)
+    {
+        // Se calcula el promedio de los valores ingresados
+        var promedio = (valor1 + valor2) / 2;
+        return promedio;
+    }
+
+    // Valores ingresados por usuario
+    var nombre = prompt("ingrese su nombre");
+    var pesoInformado = prompt(nombre + ", ingrese su peso");
+    var alturaInformado = prompt(nombre + ", ingrese su altura");
+
+    var imcCalculado = calcularIMC(pesoInformado, alturaInformado);
+
+    imprimir("El imc de " + nombre + " es " + imcCalculado);
+    if (imcCalculado < 18.50) 
+    {
+        imprimir(nombre + " se encuentra bajo lo normal");
+    }
+    else if (imcCalculado >= 18.50 && imcCalculado <= 24.99) 
+    {
+        imprimir(nombre + " se encuentra dentro lo normal");
+    }
+    else if (imcCalculado >= 25 && imcCalculado <= 29.99) 
+    {
+        imprimir(nombre + " esta sobrepeso");
+    }
+    else if (imcCalculado > 30) 
+    {
+        imprimir(nombre + " esta obeso");
+    }
+
+/*
+    imprimir("<hr>");
+ 
+    // Calculos ingresados por codigo
+    var imcChristian = calcularIMC(71, 1.72);
+    var imcFelipe = calcularIMC(75, 1.73);
+
+    imprimir("El imc de Christian es: " + imcChristian);
+    imprimir("El imc de Felipe es: " + imcFelipe);
+    imprimir("El promedio del imc calculado de Christian y Felipe es: " + promEntre2(imcChristian,imcFelipe));
+ */
+
+</script>

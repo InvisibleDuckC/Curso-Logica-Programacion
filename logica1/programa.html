@@ -1,0 +1,39 @@
+<meta charset="UTF-8">
+
+
+
+<script>
+
+    function saltarLinea()
+    {
+        document.write("<br>");
+    }
+
+    function imprimir(texto)
+    {
+        document.write(texto)
+        saltarLinea()
+    }
+
+    var year_actual = 2030;
+    var nac_juan = 2000;
+    var nac_pedro = 1995;
+    var nac_carlos = 2010;
+    var edad_juan = year_actual - nac_juan;
+    var edad_pedro = year_actual - nac_pedro;
+    var edad_carlos = year_actual - nac_carlos;
+    imprimir("El promedio de edad de Juan, Pedro y Carlos es... ");
+    imprimir(Math.round((edad_juan+edad_pedro+edad_carlos)/3));
+    imprimir("La suma de edades de Juan, Pedro y Carlos es... ");
+    imprimir(edad_juan+edad_pedro+edad_carlos);
+    imprimir("El año de nacimiento de Juan es... ");
+    imprimir(year_actual - edad_juan);
+    imprimir("El año de nacimiento de Pedro es... ");
+    imprimir(year_actual - edad_pedro);
+    imprimir("El año de nacimiento de Carlos es... ");
+    imprimir(year_actual - edad_carlos);
+    imprimir("Juan tiene: " + (year_actual -nac_juan) + " años");
+    imprimir("Pedro tiene: " + (year_actual -nac_pedro) + " años");
+    imprimir("Carlos tiene: " + (year_actual - nac_carlos) + " años");
+
+</script>

@@ -1,0 +1,92 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var contador = 0;
+    var colores = ["blue","red","green"];
+    var colorActivo = colores[contador];
+    var radio = 5
+    var pantalla = document.querySelector('canvas');
+    var pincel = pantalla.getContext('2d');
+
+    var puedoDibujar = false;
+
+    pincel.fillStyle = 'grey';
+    pincel.fillRect(0, 0, 600, 400);
+
+    function dibujarCuadrado(x,y, color){
+        pincel.fillStyle = color;
+        pincel.fillRect(x,y,50,50);
+        pincel.strokeStyle = "black";
+        pincel.strokeRect(x,y,50,50);
+    }
+
+    function dibujarCirculo(evento) {
+        var x = evento.pageX - pantalla.offsetLeft;
+        var y = evento.pageY - pantalla.offsetTop;
+
+        if (puedoDibujar &&
+            (x > 50 + radio || y > 150 + radio)
+            ) {
+            pincel.fillStyle = colores[contador];
+            pincel.beginPath();
+            pincel.arc(x, y, radio, 0, 2 * 3.14);
+            pincel.fill();
+        }
+
+    }
+
+    function habilitarDibujar() {
+
+        puedoDibujar = true;
+
+    }
+
+    function deshabilitarDibujar() {
+
+        puedoDibujar = false;
+        
+    }
+
+    dibujarCuadrado(0,0,"red");
+    dibujarCuadrado(0,50,"green");
+    dibujarCuadrado(0,100,"blue");
+
+    function cambiarColor(evento){
+        var x = evento.pageX - pantalla.offsetLeft;
+        var y = evento.pageY - pantalla.offsetTop;
+
+        if ((x < 50) &&
+            (x > 0) &&
+            (y < 50) &&
+            (y > 0)){
+                //alert("Color Rojo");
+                contador = 1;
+        }
+        if ((x < 50) &&
+            (x > 0) &&
+            (y < 100) &&
+            (y > 50)){
+                //alert("Color Verde");
+                contador = 2;
+        }
+        if ((x < 50) &&
+            (x > 0) &&
+            (y < 150) &&
+            (y > 100)){
+                //alert("Color Azul");
+                contador = 0;
+        }
+
+        
+    }
+
+    pantalla.onclick = cambiarColor;
+
+    pantalla.onmousemove = dibujarCirculo;
+
+    pantalla.onmousedown = habilitarDibujar;
+
+    pantalla.onmouseup = deshabilitarDibujar;
+
+</script>

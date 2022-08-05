@@ -1,0 +1,33 @@
+<meta charset="UTF-8">
+
+<h1>Diferencia de edad en hermanos</h1>
+
+
+<script>
+    function saltarLinea()
+    {
+        document.write("<br>");
+        document.write("<br>");
+        document.write("<br>");
+        document.write("<hr>");
+        document.write("<br>");
+        document.write("<br>");
+    }
+
+    function imprimir(texto)
+    {
+        document.write("<big>" + texto + "</big>");
+        saltarLinea();
+    }
+
+    var actual_year = 2022;
+    var edad_victoria = (actual_year - 1975);
+    var edad_esteban = (actual_year - 1980);
+
+    imprimir("La edad de Victoria es: " + edad_victoria);
+    imprimir("La edad de Esteban es: " + edad_esteban);
+    imprimir("La diferencia de edades entre los 2 es: " + Math.abs(edad_esteban - edad_victoria));
+
+
+</script>
+
